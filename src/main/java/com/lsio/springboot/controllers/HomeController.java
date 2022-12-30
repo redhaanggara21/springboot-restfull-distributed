@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 @RestController
 public class HomeController {
     
@@ -32,9 +34,12 @@ public class HomeController {
         return "Hello User";
     }
 
-    @GetMapping("getcities")
-    public List<City> getCities(){
-        return cityService.getCities();
+    @GetMapping("getcities/{page}/{limit}")
+    public List<City> getCities(
+        @RequestParam(defaultValue = "0") Integer page,
+        @RequestParam(defaultValue = "10") Integer limit
+    ){
+        return cityService.findPaginated(page, limit);
     }
 
     @PostMapping("addcity")
