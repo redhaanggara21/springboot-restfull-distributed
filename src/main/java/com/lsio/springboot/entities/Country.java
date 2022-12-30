@@ -29,6 +29,7 @@ public class Country {
     private String countryname;
 
     @NonNull
+    @Column(name="population")
     private long population;
 
     @JsonIgnore
