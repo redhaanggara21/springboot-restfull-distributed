@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Set;
 
 import com.lsio.springboot.Pojos.CityRequest;
+import com.lsio.springboot.Pojos.CountryRequest;
 import com.lsio.springboot.Pojos.CourseRequest;
 import com.lsio.springboot.entities.City;
 import com.lsio.springboot.entities.Country;
 import com.lsio.springboot.entities.Course;
 import com.lsio.springboot.services.CityService;
+import com.lsio.springboot.services.CountryService;
 import com.lsio.springboot.services.CourseService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.logging.Logger;
 
 @RestController
 public class HomeController {
@@ -25,6 +28,8 @@ public class HomeController {
     CityService cityService;
     @Autowired
     CourseService courseService;
+    @Autowired
+    CountryService countryService;
 
 
     @GetMapping("sayhello")
@@ -42,6 +47,7 @@ public class HomeController {
 
     @PostMapping("addcity")
     public City SaveCity(@RequestBody City city){
+        System.out.println(city);
         return cityService.saveCity(city);
     }
 
@@ -58,6 +64,11 @@ public class HomeController {
     @PostMapping("addcourse")
     public Course addCourse(@RequestBody CourseRequest courseRequest){
         return courseService.addCourseWithContents(courseRequest);
+    }
+    
+    @PostMapping("addcountry")
+    public Country addCountry(@RequestBody Country country){
+        return countryService.saveCountry(country);
     }
 
     @GetMapping("countrystartswith")

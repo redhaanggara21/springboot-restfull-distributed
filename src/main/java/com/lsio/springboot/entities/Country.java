@@ -28,6 +28,7 @@ public class Country {
     @Column(name="country_name")
     private String countryname;
 
+
     @Column(name="population")
     private long population;
 
