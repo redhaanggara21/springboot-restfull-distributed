@@ -28,7 +28,6 @@ public class Country {
     @Column(name="country_name")
     private String countryname;
 
-    @NonNull
     @Column(name="population")
     private long population;
 

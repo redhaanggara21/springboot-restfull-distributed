@@ -1,8 +1,6 @@
 package com.lsio.springboot.entities;
 
-import java.util.List;
 import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -45,8 +43,6 @@ public class Manufacturer {
 
     public void setVehicles(Set<Vehicle> vehicles) {
         this.vehicles = vehicles;
-    }
-
-    
+    }    
 
 }
