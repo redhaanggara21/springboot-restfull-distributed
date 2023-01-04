@@ -24,6 +24,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lsio.springboot.Pojos.EmpIdName;
 
 @Entity
@@ -75,6 +76,7 @@ public class Employee {
 
     @NotNull
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss")
     private Date joiningdate;
 
     @NotNull(message = "Age is required")
