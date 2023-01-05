@@ -1,6 +1,7 @@
 package com.lsio.springboot.entities;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
@@ -12,38 +13,62 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
 import static javax.persistence.TemporalType.TIMESTAMP;
 
 
-@Data
-@EqualsAndHashCode
-@ToString
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class Auditable <T> {
+public abstract class Auditable<U> {
 
-	@Column(name = "created_date", updatable = false)
-	@Temporal(TIMESTAMP)
 	@CreatedDate
-    protected Date creationDate;
+	@Temporal(TIMESTAMP)
+	@Column(name = "createdAt", nullable = false, columnDefinition = "TIMESTAMP")
+    protected Date createdAt;
 
-
-	@Column(name = "lastMod_date")
+	
 	@LastModifiedDate
 	@Temporal(TIMESTAMP)
-	protected Date lastModifiedDate;
+	@Column(name = "updatedAt", nullable = false, columnDefinition = "TIMESTAMP")
+	protected Date updatedAt;
 
 	@CreatedBy
-	@Column(name="created_by")
-	protected T createdBy;
+	protected U createdBy;
 
 	@LastModifiedBy
-	@Column(name="modified_by")
-	protected T modifiedBy;
+	protected U modifiedBy;
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public U getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(U createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public U getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(U modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	
 
 }
