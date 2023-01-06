@@ -1,13 +1,17 @@
 package com.lsio.springboot.services;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.criteria.Order;
 
 import com.lsio.springboot.Pojos.CityRequest;
 import com.lsio.springboot.entities.City;
 import com.lsio.springboot.entities.Country;
+import com.lsio.springboot.payload.CityDto;
+import com.lsio.springboot.payload.CityResponse;
 import com.lsio.springboot.repositories.CityRepository;
 import com.lsio.springboot.repositories.CountryRepository;
 
@@ -17,42 +21,88 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Order;
 
 @Service
 public class CityService {
 
-    @Autowired CityRepository cityresRepository;
+    @Autowired CityRepository cityRepository;
     @Autowired CountryRepository countryRepository;
 
     public CityService(){
         
     }
 
-    public List<City> findPaginated(int page, int limit){
+    private Sort.Direction getSortDirection(String direction) {
+        if (direction.equals("asc")) {
+          return Sort.Direction.ASC;
+        } else if (direction.equals("desc")) {
+          return Sort.Direction.DESC;
+        }
+    
+        return Sort.Direction.ASC;
+      }
+    
 
-        Pageable paging = PageRequest.of(page, limit);
-        Page<City> pagedResult = cityresRepository.findAll(paging);
-        return pagedResult.toList();
+    public CityResponse findPaginated(
+        int pageNo, 
+        int pageSize, 
+        String sortBy, 
+        String sortDir,
+        String status,
+        String title
+    ){
 
+        // Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortDir).ascending()
+        //         : Sort.by(sortDir).descending();
+
+        
+        // Pageable pageable = PageRequest.of(pageNo, pageSize, Sort.by(sortDir));
+        // Page<City> pageList = cityRepository.findAll(pageable);
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+
+        Page<City> pageList;
+
+        if (title == null || title == ""){
+            pageList = cityRepository.findAll(pageable);
+        } else {
+            // pageList = cityRepository.findByTitleContaining(title, pageable);
+            pageList = cityRepository.findAll(pageable);
+        }
+
+        List<City> citylist = pageList.getContent();
+        // List<CityDto> cityListPage = citylist.toList();
+
+        CityResponse cityResponse = new CityResponse();
+        cityResponse.setContent(citylist);
+        cityResponse.setPageNo(pageList.getNumber());
+        cityResponse.setPageSize(pageList.getSize());
+        cityResponse.setTotalElements(pageList.getTotalElements());
+        cityResponse.setTotalPages(pageList.getTotalPages());
+        cityResponse.setLast(pageList.isLast());
+        cityResponse.setSortBy(sortBy);
+        cityResponse.setSortDir(sortDir);
+        cityResponse.setStatus(status);
+        cityResponse.setTitle(title);
+
+        return cityResponse;
     }
 
     public List<City> getCities(){
 
-        return cityresRepository.findAll();
+        return cityRepository.findAll();
 
     }
 
 	public City saveCity(City city) {
 
-        return cityresRepository.save(city);
+        return cityRepository.save(city);
 
 	}
 
 	public City getCity(String cityname) {
-		return cityresRepository.findByCityname(cityname);
+		return cityRepository.findByCityname(cityname);
 	}
 
 	public City addCity(CityRequest cityrequest) {
@@ -63,7 +113,7 @@ public class CityService {
         city.setCitycode(cityrequest.citycode);
         city.setCountry(country);
 
-    	return cityresRepository.save(city);
+    	return cityRepository.save(city);
 	}
 
     public List<Country> findByCountryNameStartsWithOrderByPopulation(String countryname){

@@ -28,6 +28,9 @@ public class City {
     @Column(name ="citycode", columnDefinition = "character varying(3) not null default 'NA'")
     private String citycode;
 
+    @Column(name ="status", columnDefinition = "boolean not null default TRUE ")
+    private Boolean status;
+
     @Transient
     private String beanid;
 
