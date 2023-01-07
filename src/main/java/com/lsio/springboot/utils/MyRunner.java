@@ -4,7 +4,7 @@ import com.lsio.springboot.dto.DepartmentDto;
 import com.lsio.springboot.dto.EmployeeDto;
 import com.lsio.springboot.dto.SalaryGradeDto;
 import com.lsio.springboot.services.advancedsearching.DepartmentService;
-import com.lsio.springboot.services.advancedsearching.EmployeeService;
+import com.lsio.springboot.services.advancedsearching.EmployeeeService;
 import com.lsio.springboot.services.advancedsearching.SalaryGradeService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +21,7 @@ import java.util.List;
 public class MyRunner implements CommandLineRunner {
 
     @Autowired
-    private EmployeeService employeeService;
+    private EmployeeeService employeeService;
 
     @Autowired
     private DepartmentService departmentService;

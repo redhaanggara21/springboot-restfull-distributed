@@ -13,7 +13,7 @@ import com.lsio.springboot.advSearch.EmpSpecificationBuilder;
 import com.lsio.springboot.advSearch.EmployeeSearchDto;
 import com.lsio.springboot.advSearch.SearchCriteria;
 import com.lsio.springboot.domain.Employee;
-import com.lsio.springboot.services.advancedsearching.EmployeeService;
+import com.lsio.springboot.services.advancedsearching.EmployeeeService;
 import com.lsio.springboot.utils.APIResponse;
 
 import java.util.List;
@@ -23,7 +23,7 @@ import java.util.List;
 public class AdvSearchController {
 
     @Autowired
-    private EmployeeService empService;
+    private EmployeeeService empService;
 
     @GetMapping("/employees")
     public ResponseEntity<APIResponse> getAllEmployees(){
