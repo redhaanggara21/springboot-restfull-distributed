@@ -10,7 +10,6 @@ import com.lsio.springboot.repositories.EmployeeRepository;
 import com.lsio.springboot.services.EmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -101,43 +100,6 @@ public class EmployeeController {
     @GetMapping("getallempref")
     public Object getAllEmpRef(@RequestParam int employeeid){
         return employeeService.getAllEmpRef(employeeid);
-    }
-
-    @GetMapping("/employees")
-    public ResponseEntity<APIResponse> getAll(){
-        APIResponse apiResponse = new APIResponse();
-        apiResponse.setData(empService.findAllEmployee());
-        apiResponse.setMessage("Employee record retrieved successfully");
-        apiResponse.setResponseCode(HttpStatus.OK);
-        return new ResponseEntity<>(apiResponse, apiResponse.getResponseCode());
-    }
-
-    @PostMapping("/search")
-    public ResponseEntity<APIResponse> searchEmployees(@RequestParam(name = "pageNum", defaultValue = "0") int pageNum,
-                                                       @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
-                                                       @RequestBody EmployeeSearchDto employeeSearchDto){
-        System.out.println("employeeSearchDto:" + employeeSearchDto);
-        APIResponse apiResponse = new APIResponse();
-        EmpSpecificationBuilder builder = new EmpSpecificationBuilder();
-        List<SearchCriteria> criteriaList = employeeSearchDto.getSearchCriteriaList();
-        if(criteriaList != null){
-            criteriaList.forEach(x-> {x.setDataOption(employeeSearchDto.getDataOption());
-                                        builder.with(x);
-            });
-
-        }
-
-        Pageable page = PageRequest.of(pageNum, pageSize, Sort.by("empfirstNm")
-                                   .ascending().and(Sort.by("emplastNm"))
-                                   .ascending().and(Sort.by("department")).ascending());
-
-        Page<Employee> employeePage = empService.findBySearchCriteria(builder.build(), page);
-
-        apiResponse.setData(employeePage.toList());
-        apiResponse.setResponseCode(HttpStatus.OK);
-        apiResponse.setMessage("Successfully retrieved employee record");
-
-        return new ResponseEntity<>(apiResponse, apiResponse.getResponseCode());
     }
 
 }
