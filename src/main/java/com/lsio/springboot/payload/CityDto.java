@@ -16,7 +16,7 @@ import lombok.Data;
 public class CityDto {
 
     @NotEmpty
-    private Long id;
+    private Long city_id;
 
     @NotEmpty
     private String cityname;

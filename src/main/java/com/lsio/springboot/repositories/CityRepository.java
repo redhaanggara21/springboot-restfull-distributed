@@ -1,6 +1,7 @@
 package com.lsio.springboot.repositories;
 
 import com.lsio.springboot.entities.City;
+import com.lsio.springboot.payload.CityDto;
 
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;

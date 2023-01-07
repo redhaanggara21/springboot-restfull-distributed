@@ -3,6 +3,7 @@ package com.lsio.springboot.repositories;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import com.lsio.springboot.entities.Employee;
@@ -17,7 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     
-    Employee findById(int id);
     List<Employee> findByEmployeename(String employeename);
 
     List<Employee> findByDepartmentAndAgeGreaterThanEqual(String department,int age);
@@ -74,5 +74,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     @Procedure(name ="emp.GetEmpIdandName")
     Map<String,?> ProcGetIdandDept(int employeeid);
+
+    List<Employee> findAll();
+    // Optional<Employee> findById(Long employeeId);
+    List<Employee> findByFirstNameAndLastName(String employeename);
 
 }
