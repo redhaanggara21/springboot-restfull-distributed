@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -24,6 +23,6 @@ public class Department {
 
     @OneToMany(mappedBy = "department")
     @JsonIgnore
-    private List<Employee> emps;
+    private List<Worker> emps;
 
 }

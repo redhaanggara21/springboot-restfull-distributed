@@ -11,18 +11,18 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "EMPLOYEE")
-public class Employee {
+@Table(name = "WORKER")
+public class Worker {
 
     @Id
-    @Column(name = "EMP_ID")
-    private Long empId;
+    @Column(name = "WORK_ID")
+    private Long wrkId;
 
-    @Column(name = "EMP_LASTNM")
-    private String emplastNm;
+    @Column(name = "WORK_LASTNM")
+    private String wrklastNm;
 
-    @Column(name = "EMP_FIRSTNM")
-    private String  empfirstNm;
+    @Column(name = "WORK_FIRSTNM")
+    private String  wrkfirstNm;
 
     @Column(name = "JOB_NM")
     private String jobNm;

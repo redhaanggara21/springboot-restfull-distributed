@@ -1,14 +1,8 @@
 package com.lsio.springboot.repositories;
 
 import com.lsio.springboot.entities.City;
-import com.lsio.springboot.payload.CityDto;
-
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
-import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import java.util.List;
-import org.springframework.data.domain.Sort;
 
 @Repository
 public interface CityRepository extends JpaRepository<City,Long>{

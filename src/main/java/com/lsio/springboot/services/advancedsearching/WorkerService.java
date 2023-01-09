@@ -1,8 +1,8 @@
 package com.lsio.springboot.services.advancedsearching;
 
-import com.lsio.springboot.dao.EmployeeRepository;
-import com.lsio.springboot.domain.Employee;
-import com.lsio.springboot.dto.EmployeeDto;
+import com.lsio.springboot.dao.WorkerRepository;
+import com.lsio.springboot.domain.Worker;
+import com.lsio.springboot.dto.WorkerDto;
 import com.lsio.springboot.mapper.DomainDtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,22 +13,22 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EmployeeeService {
+public class WorkerService {
 
     @Autowired
-    private EmployeeRepository empRepository;
+    private WorkerRepository empRepository;
 
-    public EmployeeDto addEmployee(EmployeeDto employeeDto){
-        Employee emp = DomainDtoMapper.getEmployee(employeeDto);
+    public WorkerDto addWorker(WorkerDto workerDto){
+        Worker emp = DomainDtoMapper.getEmployee(workerDto);
         return DomainDtoMapper.getEmployeeDto(empRepository.saveAndFlush(emp));
     }
 
-    public List<Employee> findAllEmployee(){
+    public List<Worker> findAllWorker(){
         return empRepository.findAll();
     }
 
-    public Page<Employee> findBySearchCriteria(Specification<Employee> spec, Pageable page){
-        Page<Employee> searchResult = empRepository.findAll(spec, page);
+    public Page<Worker> findBySearchCriteria(Specification<Worker> spec, Pageable page){
+        Page<Worker> searchResult = empRepository.findAll(spec, page);
         return searchResult;
     }
 }

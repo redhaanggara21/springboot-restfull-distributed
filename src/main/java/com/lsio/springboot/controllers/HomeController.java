@@ -1,11 +1,9 @@
 package com.lsio.springboot.controllers;
 
-import java.net.http.HttpHeaders;
 import java.util.List;
 import java.util.Set;
 
 import com.lsio.springboot.Pojos.CityRequest;
-import com.lsio.springboot.Pojos.CountryRequest;
 import com.lsio.springboot.Pojos.CourseRequest;
 import com.lsio.springboot.entities.City;
 import com.lsio.springboot.entities.Country;

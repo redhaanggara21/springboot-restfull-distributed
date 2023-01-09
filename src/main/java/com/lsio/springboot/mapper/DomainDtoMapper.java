@@ -1,31 +1,31 @@
 package com.lsio.springboot.mapper;
 
 import com.lsio.springboot.domain.Department;
-import com.lsio.springboot.domain.Employee;
+import com.lsio.springboot.domain.Worker;
 import com.lsio.springboot.domain.SalaryGrade;
 import com.lsio.springboot.dto.DepartmentDto;
-import com.lsio.springboot.dto.EmployeeDto;
+import com.lsio.springboot.dto.WorkerDto;
 import com.lsio.springboot.dto.SalaryGradeDto;
 import org.modelmapper.ModelMapper;
 
 public class DomainDtoMapper {
 
-    public static Employee getEmployee(EmployeeDto empDto){
+    public static Worker getEmployee(WorkerDto empDto){
         if(empDto == null){
             return null;
         }
 
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(empDto, Employee.class);
+        return modelMapper.map(empDto, Worker.class);
     }
 
-    public static EmployeeDto getEmployeeDto(Employee emp){
+    public static WorkerDto getEmployeeDto(Worker emp){
         if(emp == null){
             return null;
         }
 
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(emp, EmployeeDto.class);
+        return modelMapper.map(emp, WorkerDto.class);
     }
 
     public static Department getDepartment(DepartmentDto deptDto){

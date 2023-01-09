@@ -1,10 +1,10 @@
 package com.lsio.springboot.utils;
 
 import com.lsio.springboot.dto.DepartmentDto;
-import com.lsio.springboot.dto.EmployeeDto;
+import com.lsio.springboot.dto.WorkerDto;
 import com.lsio.springboot.dto.SalaryGradeDto;
 import com.lsio.springboot.services.advancedsearching.DepartmentService;
-import com.lsio.springboot.services.advancedsearching.EmployeeeService;
+import com.lsio.springboot.services.advancedsearching.WorkerService;
 import com.lsio.springboot.services.advancedsearching.SalaryGradeService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +21,7 @@ import java.util.List;
 public class MyRunner implements CommandLineRunner {
 
     @Autowired
-    private EmployeeeService employeeService;
+    private WorkerService workerService;
 
     @Autowired
     private DepartmentService departmentService;
@@ -43,8 +43,8 @@ public class MyRunner implements CommandLineRunner {
 
             inputStream = TypeReference.class.getResourceAsStream("/json/employee.json");
             log.info("Saving Employee data");
-            List<EmployeeDto> empList = objectMapper.readValue(inputStream, new TypeReference<List<EmployeeDto>>() {});
-            empList.stream().forEach(x -> employeeService.addEmployee(x));
+            List<WorkerDto> empList = objectMapper.readValue(inputStream, new TypeReference<List<WorkerDto>>() {});
+            empList.stream().forEach(x -> workerService.addWorker(x));
             log.info("Successfully save");
 
             inputStream = TypeReference.class.getResourceAsStream("/json/salarygrade.json");

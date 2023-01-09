@@ -1,23 +1,24 @@
 package com.lsio.springboot.advSearch;
 
 import com.lsio.springboot.domain.Department;
-import com.lsio.springboot.domain.Employee;
+import com.lsio.springboot.domain.Worker;
+
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.*;
 import java.util.Objects;
 
-public class EmployeeSpecification implements Specification<Employee> {
+public class WorkerSpecification implements Specification<Worker> {
 
     private final SearchCriteria searchCriteria;
 
-    public EmployeeSpecification(final SearchCriteria searchCriteria){
+    public WorkerSpecification(final SearchCriteria searchCriteria){
         super();
         this.searchCriteria = searchCriteria;
     }
 
     @Override
-    public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+    public Predicate toPredicate(Root<Worker> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 
         String strToSearch = searchCriteria.getValue().toString().toLowerCase();
 
@@ -88,11 +89,13 @@ public class EmployeeSpecification implements Specification<Employee> {
 
             case LESS_THAN_EQUAL:
                 return cb.lessThanOrEqualTo(root.<String> get(searchCriteria.getFilterKey()), searchCriteria.getValue().toString());
+            default:
+                break;
         }
         return null;
     }
 
-    private Join<Employee, Department> departmentJoin(Root<Employee> root){
+    private Join<Worker, Department> departmentJoin(Root<Worker> root){
         return root.join("department");
 
     }

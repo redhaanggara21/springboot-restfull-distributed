@@ -5,16 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmployeeDto {
-    private Long empId;
-    private String emplastNm;
-    private String empfirstNm;
+public class WorkerDto {
+    private Long wrkId;
+    private String wrklastNm;
+    private String wrkfirstNm;
     private String jobNm;
     private Long managerId;
     private Date hireDt;
