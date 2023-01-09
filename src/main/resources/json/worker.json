@@ -1,0 +1,198 @@
+[
+	{
+		"wrkId": 68319,
+		"wrklastNm": "Kayling",
+		"wrkfirstNm": "Blake",
+		"jobNm": "President",
+		"managerId": null,
+		"hireDt": "1991-11-18",
+		"salary": 6000.0,
+		"commission": null,
+		"department": {
+			"deptId": 1001,
+			"deptName": "FINANCE"
+		}
+	},
+	{
+		"wrkId": 66928,
+		"wrklastNm": "Blaze",
+		"wrkfirstNm": "Jason",
+		"jobNm": "Manager",
+		"managerId": 68319,
+		"hireDt": "1991-05-01",
+		"salary": 2750.0,
+		"commission": null,
+		"department": {
+			"deptId": 3001,
+			"deptName": "MARKETING"
+		}
+	},
+	{
+		"wrkId": 67832,
+		"wrklastNm": "Dane",
+		"wrkfirstNm": "Claire",
+		"jobNm": "Manager",
+		"managerId": 68319,
+		"hireDt": "1991-06-09",
+		"salary": 2550.0,
+		"commission": null,
+		"department": {
+			"deptId": 1001,
+			"deptName": "FINANCE"
+		}
+	},
+	{
+		"wrkId": 65646,
+		"wrklastNm": "Cortez",
+		"wrkfirstNm": "Jonas",
+		"jobNm": "MANAGER",
+		"managerId": 68319,
+		"hireDt": "1991-04-02 ",
+		"salary": 2957.0,
+		"commission": null,
+		"department": {
+			"deptId": 2001,
+			"deptName": "AUDIT"
+		}
+	},
+	{
+		"wrkId": 67858,
+		"wrklastNm": "Johannsen",
+		"wrkfirstNm": "Scarlet",
+		"jobNm": "Analyst",
+		"managerId": 65646,
+		"hireDt": "1997-04-19",
+		"salary": 3100.0,
+		"commission": null,
+		"department": {
+			"deptId": 2001,
+			"deptName": "AUDIT"
+		}
+	},
+	{
+		"wrkId": 69062,
+		"wrklastNm": "Cortez",
+		"wrkfirstNm": "Frank",
+		"jobNm": "Analyst",
+		"managerId": 65646,
+		"hireDt": "1991-12-03",
+		"salary": 3100.0,
+		"commission": null,
+		"department": {
+			"deptId": 2001,
+			"deptName": "AUDIT"
+		}
+	},
+	{
+		"wrkId": 63679,
+		"wrklastNm": "Tom",
+		"wrkfirstNm": "Sandrine",
+		"jobNm": "Clerk",
+		"managerId": 69062,
+		"hireDt": "1990-12-18",
+		"salary": 900.0,
+		"commission": null,
+		"department": {
+			"deptId": 2001,
+			"deptName": "AUDIT"
+		}
+	},
+	{
+		"wrkId": 64989,
+		"wrklastNm": "James",
+		"wrkfirstNm": "Adelyn",
+		"jobNm": "Salesman",
+		"managerId": 66928,
+		"hireDt": "1991-02-20",
+		"salary": 1700.0,
+		"commission": 400.0,
+		"department": {
+			"deptId": 3001,
+			"deptName": "MARKETING"
+		}
+	},
+	{
+		"wrkId": 65271,
+		"wrklastNm": "Wade",
+		"wrkfirstNm": "Bryan",
+		"jobNm": "Salesman",
+		"managerId": 66928,
+		"hireDt": "1991-02-22",
+		"salary": 1350.0,
+		"commission": 600.0,
+		"department": {
+			"deptId": 3001,
+			"deptName": "MARKETING"
+		}
+	},
+	{
+		"wrkId": 66564,
+		"wrklastNm": "Stella",
+		"wrkfirstNm": "Madden",
+		"jobNm": "Salesman",
+		"managerId": 66928,
+		"hireDt": "1991-09-28",
+		"salary": 1350.0,
+		"commission": 1500.0,
+		"department": {
+			"deptId": 3001,
+			"deptName": "MARKETING"
+		}
+	},
+	{
+		"wrkId": 68454,
+		"wrklastNm": "Lian",
+		"wrkfirstNm": "Tucker",
+		"jobNm": "Salesman",
+		"managerId": 66928,
+		"hireDt": "1991-09-08",
+		"salary": 1600.0,
+		"commission": 0.0,
+		"department": {
+			"deptId": 3001,
+			"deptName": "MARKETING"
+		}
+	},
+	{
+		"wrkId": 68736,
+		"wrklastNm": "Cruz",
+		"wrkfirstNm": "Andres",
+		"jobNm": "Clerk",
+		"managerId": 67858,
+		"hireDt": "1997-05-23",
+		"salary": 1200.0,
+		"commission": null,
+		"department": {
+			"deptId": 2001,
+			"deptName": "AUDIT"
+		}
+	},
+	{
+		"wrkId": 69000,
+		"wrklastNm": "Dean",
+		"wrkfirstNm": "Julius",
+		"jobNm": "Clerk",
+		"managerId": 66928,
+		"hireDt": "1991-12-03",
+		"salary": 1050.0,
+		"commission": null,
+		"department": {
+			"deptId": 3001,
+			"deptName": "MARKETING"
+		}
+	},
+	{
+		"wrkId": 69324,
+		"wrklastNm": "Line",
+		"wrkfirstNm": "Mark",
+		"jobNm": "Clerk",
+		"managerId": 67832,
+		"hireDt": "1992-01-23",
+		"salary": 1400.0,
+		"commission": null,
+		"department": {
+			"deptId": 1001,
+			"deptName": "FINANCE"
+		}
+	}
+]

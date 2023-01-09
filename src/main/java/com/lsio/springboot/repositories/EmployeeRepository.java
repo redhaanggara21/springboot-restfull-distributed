@@ -71,8 +71,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Procedure(name ="emp.GetEmpIdandName")
     Map<String,?> ProcGetIdandDept(int employeeid);
 
-    List<Employee> findAll();
+    // List<Employee> findAll();
     // Optional<Employee> findById(Long employeeId);
-    List<Employee> findByFirstNameAndLastName(String employeename);
+    // List<Employee> findByFirstNameAndLastName(String employeename);
 
 }
