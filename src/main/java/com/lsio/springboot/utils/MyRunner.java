@@ -36,7 +36,7 @@ public class MyRunner implements CommandLineRunner {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             InputStream inputStream = TypeReference.class.getResourceAsStream("/json/department.json");
-            log.info("Saving Department data");
+            log.info("Saving Department data's");
             List<DepartmentDto> dept = objectMapper.readValue(inputStream, new TypeReference<List<DepartmentDto>>() {});
             dept.stream().forEach(x -> departmentService.addDepartment(x));
             log.info("Successfully save");
