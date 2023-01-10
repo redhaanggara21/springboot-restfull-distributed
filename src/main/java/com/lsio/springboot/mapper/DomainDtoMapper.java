@@ -1,10 +1,10 @@
 package com.lsio.springboot.mapper;
 
-import com.lsio.springboot.domain.Department;
-import com.lsio.springboot.domain.Worker;
-import com.lsio.springboot.domain.SalaryGrade;
 import com.lsio.springboot.dto.DepartmentDto;
 import com.lsio.springboot.dto.WorkerDto;
+import com.lsio.springboot.entities.domain.Department;
+import com.lsio.springboot.entities.domain.SalaryGrade;
+import com.lsio.springboot.entities.domain.Worker;
 import com.lsio.springboot.dto.SalaryGradeDto;
 import org.modelmapper.ModelMapper;
 

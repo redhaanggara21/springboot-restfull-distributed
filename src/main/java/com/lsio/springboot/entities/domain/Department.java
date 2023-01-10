@@ -1,4 +1,4 @@
-package com.lsio.springboot.domain;
+package com.lsio.springboot.entities.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

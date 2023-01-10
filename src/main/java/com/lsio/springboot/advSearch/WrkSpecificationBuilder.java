@@ -2,7 +2,7 @@ package com.lsio.springboot.advSearch;
 
 import org.springframework.data.jpa.domain.Specification;
 
-import com.lsio.springboot.domain.Worker;
+import com.lsio.springboot.entities.domain.Worker;
 
 import java.util.ArrayList;
 import java.util.List;
