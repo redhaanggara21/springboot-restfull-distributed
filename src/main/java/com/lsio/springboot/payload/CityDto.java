@@ -1,8 +1,6 @@
 package com.lsio.springboot.payload;
 
-import java.beans.Transient;
 import java.util.Set;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -16,7 +14,7 @@ import lombok.Data;
 public class CityDto {
 
     @NotEmpty
-    private Long id;
+    private Long city_id;
 
     @NotEmpty
     private String cityname;

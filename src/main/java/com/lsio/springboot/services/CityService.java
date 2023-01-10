@@ -1,16 +1,12 @@
 package com.lsio.springboot.services;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 
 import com.lsio.springboot.Pojos.CityRequest;
 import com.lsio.springboot.entities.City;
 import com.lsio.springboot.entities.Country;
-import com.lsio.springboot.payload.CityDto;
 import com.lsio.springboot.payload.CityResponse;
 import com.lsio.springboot.repositories.CityRepository;
 import com.lsio.springboot.repositories.CountryRepository;
@@ -22,7 +18,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort.Order;
 
 @Service
 public class CityService {
