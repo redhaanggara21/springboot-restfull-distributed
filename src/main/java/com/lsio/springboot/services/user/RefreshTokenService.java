@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.service;
+package com.lsio.springboot.services.user;
 
 import java.time.Instant;
 import java.util.Optional;
@@ -7,9 +7,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stackabuse.springSecurity.exception.TokenRefreshException;
-import com.stackabuse.springSecurity.model.RefreshToken;
-import com.stackabuse.springSecurity.repository.RefreshTokenRepository;
+
+import com.lsio.springboot.exception.TokenRefreshException;
+import com.lsio.springboot.entities.user.RefreshToken;
+import com.lsio.springboot.repositories.user.RefreshTokenRepository;
 
 @Service
 public class RefreshTokenService {

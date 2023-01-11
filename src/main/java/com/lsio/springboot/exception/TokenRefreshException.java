@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.exception;
+package com.lsio.springboot.exception;
 
 import org.springframework.http.HttpStatus;
 

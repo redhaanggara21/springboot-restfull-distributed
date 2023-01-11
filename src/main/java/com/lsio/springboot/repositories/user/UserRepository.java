@@ -1,11 +1,11 @@
-package com.stackabuse.springSecurity.repository;
+package com.lsio.springboot.repositories.user;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackabuse.springSecurity.model.User;
+import com.lsio.springboot.entities.user.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

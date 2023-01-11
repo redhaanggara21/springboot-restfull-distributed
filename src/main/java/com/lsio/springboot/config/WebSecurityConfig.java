@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.config;
+package com.lsio.springboot.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,9 +15,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.stackabuse.springSecurity.security.JwtAuthenticationEntryPoint;
-import com.stackabuse.springSecurity.security.JwtAuthenticationFilter;
-import com.stackabuse.springSecurity.service.UserDetailsServiceImpl;
+import com.lsio.springboot.services.user.UserDetailsServiceImpl;
+import com.lsio.springboot.utils.security.JwtAuthenticationEntryPoint;
+import com.lsio.springboot.utils.security.JwtAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity

@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.model;
+package com.lsio.springboot.entities.user;
 
 import java.util.HashSet;
 import java.util.Set;

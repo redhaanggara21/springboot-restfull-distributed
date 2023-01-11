@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.stackabuse.springSecurity.event.OnUserLogoutSuccessEvent;
-import com.stackabuse.springSecurity.security.JwtProvider;
+import com.lsio.springboot.event.OnUserLogoutSuccessEvent;
+import com.lsio.springboot.utils.security.JwtProvider;
 
 import net.jodah.expiringmap.ExpiringMap;
 

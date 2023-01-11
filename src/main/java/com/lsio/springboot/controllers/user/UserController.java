@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.controller;
+package com.lsio.springboot.controllers.user;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,19 +19,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackabuse.springSecurity.dto.LogOutRequest;
-import com.stackabuse.springSecurity.event.OnUserLogoutSuccessEvent;
-import com.stackabuse.springSecurity.exception.ResourceNotFoundException;
-import com.stackabuse.springSecurity.exception.UserLogoutException;
-import com.stackabuse.springSecurity.model.User;
-import com.stackabuse.springSecurity.model.UserDevice;
-import com.stackabuse.springSecurity.repository.UserRepository;
-import com.stackabuse.springSecurity.response.ApiResponse;
-import com.stackabuse.springSecurity.response.UserProfile;
-import com.stackabuse.springSecurity.service.CurrentUser;
-import com.stackabuse.springSecurity.service.RefreshTokenService;
-import com.stackabuse.springSecurity.service.UserDeviceService;
-import com.stackabuse.springSecurity.service.UserPrincipal;
+import com.lsio.springboot.dto.response.ApiResponse;
+import com.lsio.springboot.dto.response.UserProfile;
+import com.lsio.springboot.dto.user.LogOutRequest;
+import com.lsio.springboot.entities.user.User;
+import com.lsio.springboot.entities.user.UserDevice;
+import com.lsio.springboot.event.OnUserLogoutSuccessEvent;
+import com.lsio.springboot.exception.ResourceNotFoundException;
+import com.lsio.springboot.exception.UserLogoutException;
+import com.lsio.springboot.repositories.user.UserRepository;
+import com.lsio.springboot.services.user.CurrentUser;
+import com.lsio.springboot.services.user.RefreshTokenService;
+import com.lsio.springboot.services.user.UserDeviceService;
+import com.lsio.springboot.services.user.UserPrincipal;
+
 
 @RestController
 @RequestMapping("/api/users")

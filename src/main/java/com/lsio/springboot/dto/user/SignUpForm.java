@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.dto;
+package com.lsio.springboot.dto.user;
 
 import java.util.Set;
 

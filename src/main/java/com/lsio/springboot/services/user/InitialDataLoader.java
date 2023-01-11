@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.service;
+package com.lsio.springboot.services.user;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,9 +9,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import com.stackabuse.springSecurity.model.Role;
-import com.stackabuse.springSecurity.model.RoleName;
-import com.stackabuse.springSecurity.repository.RoleRepository;
+import com.lsio.springboot.entities.user.Role;
+import com.lsio.springboot.entities.user.RoleName;
+import com.lsio.springboot.repositories.user.RoleRepository;
 
 @Component
 public class InitialDataLoader {

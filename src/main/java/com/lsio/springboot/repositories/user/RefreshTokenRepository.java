@@ -1,10 +1,11 @@
-package com.stackabuse.springSecurity.repository;
+package com.lsio.springboot.repositories.user;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.stackabuse.springSecurity.model.RefreshToken;
+import com.lsio.springboot.entities.user.RefreshToken;
+
 
 public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Long> {
 

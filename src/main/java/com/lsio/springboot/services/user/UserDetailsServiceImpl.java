@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.service;
+package com.lsio.springboot.services.user;
 
 import javax.transaction.Transactional;
 
@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.stackabuse.springSecurity.model.User;
-import com.stackabuse.springSecurity.repository.UserRepository;
+import com.lsio.springboot.entities.user.User;
+import com.lsio.springboot.repositories.user.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -23,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throws UsernameNotFoundException {
       
         User user = userRepository.findByEmail(username)
-                  .orElseThrow(() -> 
+                    .orElseThrow(() -> 
                         new UsernameNotFoundException("User Not Found with -> username or email : " + username)
         );
  

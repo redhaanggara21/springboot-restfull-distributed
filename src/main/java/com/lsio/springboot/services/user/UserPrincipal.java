@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.service;
+package com.lsio.springboot.services.user;
 
 import java.util.Collection;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.stackabuse.springSecurity.model.User;
+import com.lsio.springboot.entities.user.User;
 
 public class UserPrincipal implements UserDetails {
 	private static final long serialVersionUID = 1L;

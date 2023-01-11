@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.service;
+package com.lsio.springboot.services.user;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

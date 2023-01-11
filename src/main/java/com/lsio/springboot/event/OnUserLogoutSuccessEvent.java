@@ -1,11 +1,11 @@
-package com.stackabuse.springSecurity.event;
+package com.lsio.springboot.event;
 
 import java.time.Instant;
 import java.util.Date;
 
 import org.springframework.context.ApplicationEvent;
 
-import com.stackabuse.springSecurity.dto.LogOutRequest;
+import com.lsio.springboot.dto.user.LogOutRequest;
 
 import lombok.Getter;
 import lombok.Setter;

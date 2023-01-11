@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.event.listener;
+package com.lsio.springboot.event.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import com.stackabuse.springSecurity.cache.LoggedOutJwtTokenCache;
-import com.stackabuse.springSecurity.dto.DeviceInfo;
-import com.stackabuse.springSecurity.event.OnUserLogoutSuccessEvent;
-
+import com.lsio.springboot.cache.LoggedOutJwtTokenCache;
+import com.lsio.springboot.dto.user.DeviceInfo;
+import com.lsio.springboot.event.OnUserLogoutSuccessEvent;
 @Component
 public class OnUserLogoutSuccessEventListener implements ApplicationListener<OnUserLogoutSuccessEvent> {
 

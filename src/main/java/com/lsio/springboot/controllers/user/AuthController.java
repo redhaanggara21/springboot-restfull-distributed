@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.controller;
+package com.lsio.springboot.controllers.user;
 
 import java.net.URI;
 import java.util.HashSet;
@@ -24,23 +24,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.stackabuse.springSecurity.dto.LoginForm;
-import com.stackabuse.springSecurity.dto.SignUpForm;
-import com.stackabuse.springSecurity.dto.TokenRefreshRequest;
-import com.stackabuse.springSecurity.exception.TokenRefreshException;
-import com.stackabuse.springSecurity.model.RefreshToken;
-import com.stackabuse.springSecurity.model.Role;
-import com.stackabuse.springSecurity.model.RoleName;
-import com.stackabuse.springSecurity.model.User;
-import com.stackabuse.springSecurity.model.UserDevice;
-import com.stackabuse.springSecurity.repository.RoleRepository;
-import com.stackabuse.springSecurity.repository.UserRepository;
-import com.stackabuse.springSecurity.response.ApiResponse;
-import com.stackabuse.springSecurity.response.JwtResponse;
-import com.stackabuse.springSecurity.response.UserIdentityAvailability;
-import com.stackabuse.springSecurity.security.JwtProvider;
-import com.stackabuse.springSecurity.service.RefreshTokenService;
-import com.stackabuse.springSecurity.service.UserDeviceService;
+import com.lsio.springboot.dto.response.ApiResponse;
+import com.lsio.springboot.dto.response.JwtResponse;
+import com.lsio.springboot.dto.response.UserIdentityAvailability;
+import com.lsio.springboot.dto.user.LoginForm;
+import com.lsio.springboot.dto.user.SignUpForm;
+import com.lsio.springboot.dto.user.TokenRefreshRequest;
+import com.lsio.springboot.entities.user.User;
+import com.lsio.springboot.entities.user.RefreshToken;
+import com.lsio.springboot.entities.user.Role;
+import com.lsio.springboot.entities.user.RoleName;
+import com.lsio.springboot.entities.user.UserDevice;
+import com.lsio.springboot.exception.TokenRefreshException;
+import com.lsio.springboot.repositories.user.RoleRepository;
+import com.lsio.springboot.repositories.user.UserRepository;
+import com.lsio.springboot.services.user.RefreshTokenService;
+import com.lsio.springboot.services.user.UserDeviceService;
+import com.lsio.springboot.utils.security.JwtProvider;
+
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController

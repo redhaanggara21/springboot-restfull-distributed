@@ -1,4 +1,4 @@
-package com.stackabuse.springSecurity.dto;
+package com.lsio.springboot.dto.user;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
