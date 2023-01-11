@@ -1,4 +1,4 @@
-package com.lsio.springboot.domain;
+package com.lsio.springboot.entities.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

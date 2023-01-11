@@ -7,7 +7,6 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.ZonedDateTimeSerializer;
 
-import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
 import org.apache.catalina.filters.CorsFilter;

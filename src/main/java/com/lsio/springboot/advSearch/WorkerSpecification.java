@@ -1,9 +1,9 @@
 package com.lsio.springboot.advSearch;
 
-import com.lsio.springboot.domain.Department;
-import com.lsio.springboot.domain.Worker;
-
 import org.springframework.data.jpa.domain.Specification;
+
+import com.lsio.springboot.entities.domain.Department;
+import com.lsio.springboot.entities.domain.Worker;
 
 import javax.persistence.criteria.*;
 import java.util.Objects;

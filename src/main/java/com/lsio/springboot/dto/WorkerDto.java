@@ -1,11 +1,12 @@
 package com.lsio.springboot.dto;
 
-import com.lsio.springboot.domain.Department;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+
+import com.lsio.springboot.entities.domain.Department;
 
 @Data
 @AllArgsConstructor
