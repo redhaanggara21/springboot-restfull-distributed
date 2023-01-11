@@ -1,7 +1,7 @@
 version: "2"
 services:
   backend1:
-    image: systelab/seed-springboot:latest
+    image: redha21/seed-springboot:latest
     ports:
       - "8080:8080"
       - "8443:8443"
