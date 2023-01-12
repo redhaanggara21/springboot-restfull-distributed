@@ -10,6 +10,8 @@ services:
     volumes: 
       - ../docker-pg-vol/data:/var/lib/postgresql/data
       - ../init/initData.sql:/docker-entrypoint-initdb.d/initData.sql
+      - /Users/path/docker/postgres/docker-pg-vol/data:/var/lib/postgresql/data
+      - /Users/path/docker/postgres/init/initData.sql:/docker-entrypoint-initdb.d/initData.sql
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres

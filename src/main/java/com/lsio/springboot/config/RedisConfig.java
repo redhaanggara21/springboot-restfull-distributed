@@ -1,26 +1,49 @@
 package com.lsio.springboot.config;
 
-// import io.lettuce.core.RedisClient;
-// import io.lettuce.core.RedisURI;
-// import io.lettuce.core.api.StatefulRedisConnection;
-// import io.lettuce.core.api.sync.RedisCommands;
+import java.util.UUID;
+import java.util.concurrent.Executors;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-// import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.listener.ChannelTopic;
+import org.springframework.data.redis.listener.RedisMessageListenerContainer;
+import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
+import org.springframework.data.redis.serializer.GenericToStringSerializer;
+
+import com.lsio.springboot.controllers.redis.receiver.RedisReciever;
 
 @Configuration
 // @EnableRedisRepositories
 public class RedisConfig {
 
-    // @Value("${spring.redis.url}")
-    // private String uri;
+    @Bean
+	JedisConnectionFactory connectionFactory() {
+		JedisConnectionFactory factory = new JedisConnectionFactory();
+		return factory;
+	}
 
-    // @Bean
-    // public RedisCommands connectionFactory() {
-    //     RedisURI redisURI = RedisURI.create(uri);
-    //     RedisClient redisClient = RedisClient.create(redisURI);
-    //     StatefulRedisConnection<String, String> redisConnection = redisClient.connect();
-    //     return redisConnection.sync();
-    // }
+	@Bean
+	public RedisTemplate<String, String> redisTemplate() {
+		RedisTemplate<String, String> template = new RedisTemplate<>();
+		template.setConnectionFactory(connectionFactory());
+		template.setValueSerializer(new GenericToStringSerializer<String>(String.class));
+		return template;
+	};
+
+	@Bean
+	ChannelTopic topic() {
+		return new ChannelTopic(UUID.randomUUID().toString());
+	}
+
+	@Bean
+	RedisMessageListenerContainer redisContainer() {
+		RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+		container.setConnectionFactory(connectionFactory());
+		container.addMessageListener(new MessageListenerAdapter(new RedisReciever()), topic());
+		container.setTaskExecutor(Executors.newFixedThreadPool(4));
+		return container;
+	}
 }
