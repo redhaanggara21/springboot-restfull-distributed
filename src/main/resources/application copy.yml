@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: Spring Boot Tutorial by SagguUK (@sagguuk)
+  boot:
+    admin:
+      client:
+        url:  http://localhost:9090
+        enabled: true
+        auto-registration: true
+        instance:
+          name: ${spring.application.name:JSS}
+
+logging:
+  level:
+    root: INFO
+    eshop-dao: DEBUG
+    eshop-controller: INFO
+    eshop: INFO
+
+  group:
+    spring: "org.springframework, org.springdoc"
+    eshop-dao: "com.saggu.eshop.dao"
+    eshop-controller: "com.saggu.eshop.controller"
+    eshop: "com.saggu.eshop"
+
+server:
+  tomcat:
+    threads:
+      max: 5
+    max-connections: 10
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    configprops:
+      show-values: always
+    env:
+      show-values: always
+    loggers:
+      enabled: true
+
+  server:
+    port: ${server.port:8081}
+
+#flyway:
+#  enabled: true
+#  locations: classpath:resources/db/migration
+#
+#spring:
+#  flyway:
+#    enabled: true

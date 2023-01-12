@@ -1,3 +1,10 @@
-https://medium.com/@javatechie/kubernetes-tutorial-run-deploy-spring-boot-application-in-k8s-cluster-using-yaml-configuration-3b079154d232
+references:
 
+https://medium.com/@javatechie/kubernetes-tutorial-run-deploy-spring-boot-application-in-k8s-cluster-using-yaml-configuration-3b079154d232
 https://github.com/rajeshsgr/order-svc/tree/main/src/main/java/com/raj/nola/order
+https://stackabuse.com/spring-boot-with-redis-hashoperations-crud-functionality/
+https://medium.com/geekculture/overview-of-caching-distributed-cache-caching-patterns-techniques-6130a116820
+
+install redis
+1. brew nstall redis (for mac os) better os see on here: https://redis.io/
+2. 

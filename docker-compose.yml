@@ -12,7 +12,30 @@ services:
       - ../init/initData.sql:/docker-entrypoint-initdb.d/initData.sql
     environment:
       POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-d", "db_prod" ]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+      #URL	jdbc:postgresql://localhost:5432/postgres
+
+  flyway:
+    container_name: flyway
+    image: flyway/flyway
+    command: migrate -X
+    environment:
+      FLYWAY_SCHEMAS: "public"
+    restart: on-failure
+    volumes:
+      - ./flyway-postgres.conf:/flyway/conf/flyway.conf
+      - ../resources/db/migration:/flyway/sql
+    depends_on:
+      postgres:
+        condition: service_healthy
+
   app:
     container_name: rest-api
     image: rest-api

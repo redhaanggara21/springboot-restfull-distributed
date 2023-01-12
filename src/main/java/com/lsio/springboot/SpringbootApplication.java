@@ -8,12 +8,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SpringbootApplication {
 	
-	private static final String dateFormat = "yyyy-MM-dd";
-	private static final String dateTimeFormat = "yyyy-MM-dd HH:mm:ss";
+	// private static final String dateFormat = "yyyy-MM-dd";
+	// private static final String dateTimeFormat = "yyyy-MM-dd HH:mm:ss";
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootApplication.class, args);
 	}
+	
 
 	// @Bean
 	// public Jackson2ObjectMapperBuilderCustomizer jsonCustomizer(){

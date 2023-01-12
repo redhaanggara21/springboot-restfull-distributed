@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  main:
+    banner-mode: off
+  zipkin:
+    enabled: false
+  redis:
+    url: redis-sentinel://localhost:26379/0#mymaster
+    sentinel:
+      master: mymaster
+      nodes: localhost:26379
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus

@@ -22,6 +22,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lsio.springboot.utils.AppConstants;
+
+// import io.lettuce.core.api.sync.RedisCommands;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RestController
 @RequestMapping()
 public class HomeController {
@@ -33,6 +38,12 @@ public class HomeController {
 
     @Autowired
     CountryService countryService;
+
+    Logger log = LoggerFactory.getLogger(HomeController.class);
+
+    @Autowired
+    // private RedisCommands<String,String> commands;
+
 
 
     @GetMapping("sayhello")
@@ -50,6 +61,7 @@ public class HomeController {
         @RequestParam(value = "status", defaultValue = AppConstants.DEFAULT_FILTER_STATUS, required = false) String status,
         @RequestParam(value = "title", defaultValue = AppConstants.DEFAULT_FILTER_FIND_NAME, required = false) String title
     ){
+        log.info("Get data for pageNo: {}", pageNo);
         return cityService.findPaginated(
             pageNo, 
             pageSize,
@@ -62,7 +74,7 @@ public class HomeController {
 
     @PostMapping("addcity")
     public City SaveCity(@RequestBody City city){
-        System.out.println(city);
+        log.info("param: ", city);
         return cityService.saveCity(city);
     }
 
