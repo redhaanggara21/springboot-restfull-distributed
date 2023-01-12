@@ -11,11 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import com.lsio.springboot.cache.LoggedOutJwtTokenCache;
 import com.lsio.springboot.entities.user.User;
-import com.lsio.springboot.event.OnUserLogoutSuccessEvent;
-import com.lsio.springboot.exception.InvalidTokenRequestException;
+import com.lsio.springboot.services.exception.InvalidTokenRequestException;
 import com.lsio.springboot.services.user.UserPrincipal;
+import com.lsio.springboot.utils.cache.LoggedOutJwtTokenCache;
+import com.lsio.springboot.utils.event.OnUserLogoutSuccessEvent;
 
 
 @Component

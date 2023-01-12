@@ -7,10 +7,9 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import com.lsio.springboot.exception.TokenRefreshException;
 import com.lsio.springboot.entities.user.RefreshToken;
 import com.lsio.springboot.repositories.user.RefreshTokenRepository;
+import com.lsio.springboot.services.exception.TokenRefreshException;
 
 @Service
 public class RefreshTokenService {

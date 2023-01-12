@@ -3,12 +3,12 @@ package com.lsio.springboot.controllers;
 import java.util.List;
 import java.util.Set;
 
-import com.lsio.springboot.Pojos.CityRequest;
-import com.lsio.springboot.Pojos.CourseRequest;
+import com.lsio.springboot.dto.Pojos.CityRequest;
+import com.lsio.springboot.dto.Pojos.CourseRequest;
+import com.lsio.springboot.dto.payload.CityResponse;
 import com.lsio.springboot.entities.City;
 import com.lsio.springboot.entities.Country;
 import com.lsio.springboot.entities.Course;
-import com.lsio.springboot.payload.CityResponse;
 import com.lsio.springboot.services.CityService;
 import com.lsio.springboot.services.CountryService;
 import com.lsio.springboot.services.CourseService;

@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.StoredProcedureQuery;
 import javax.transaction.Transactional;
 
-import com.lsio.springboot.Pojos.EmpIdName;
+import com.lsio.springboot.dto.Pojos.EmpIdName;
 import com.lsio.springboot.entities.Employee;
 import com.lsio.springboot.repositories.EmployeeRepository;
 

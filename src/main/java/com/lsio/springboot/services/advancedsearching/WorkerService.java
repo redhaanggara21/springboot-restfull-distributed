@@ -1,8 +1,8 @@
 package com.lsio.springboot.services.advancedsearching;
 
 import com.lsio.springboot.dto.WorkerDto;
+import com.lsio.springboot.dto.mapper.DomainDtoMapper;
 import com.lsio.springboot.entities.domain.Worker;
-import com.lsio.springboot.mapper.DomainDtoMapper;
 import com.lsio.springboot.repositories.dao.WorkerRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

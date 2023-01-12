@@ -24,14 +24,14 @@ import com.lsio.springboot.dto.response.UserProfile;
 import com.lsio.springboot.dto.user.LogOutRequest;
 import com.lsio.springboot.entities.user.User;
 import com.lsio.springboot.entities.user.UserDevice;
-import com.lsio.springboot.event.OnUserLogoutSuccessEvent;
-import com.lsio.springboot.exception.ResourceNotFoundException;
-import com.lsio.springboot.exception.UserLogoutException;
 import com.lsio.springboot.repositories.user.UserRepository;
+import com.lsio.springboot.services.exception.ResourceNotFoundException;
+import com.lsio.springboot.services.exception.UserLogoutException;
 import com.lsio.springboot.services.user.CurrentUser;
 import com.lsio.springboot.services.user.RefreshTokenService;
 import com.lsio.springboot.services.user.UserDeviceService;
 import com.lsio.springboot.services.user.UserPrincipal;
+import com.lsio.springboot.utils.event.OnUserLogoutSuccessEvent;
 
 
 @RestController

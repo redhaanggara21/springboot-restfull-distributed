@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import com.lsio.springboot.dto.user.DeviceInfo;
 import com.lsio.springboot.entities.user.RefreshToken;
 import com.lsio.springboot.entities.user.UserDevice;
-import com.lsio.springboot.exception.TokenRefreshException;
 import com.lsio.springboot.repositories.user.UserDeviceRepository;
+import com.lsio.springboot.services.exception.TokenRefreshException;
 
 @Service
 public class UserDeviceService {

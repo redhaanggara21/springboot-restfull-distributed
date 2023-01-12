@@ -3,11 +3,10 @@ package com.lsio.springboot.services;
 import java.util.List;
 import java.util.Set;
 
-
-import com.lsio.springboot.Pojos.CityRequest;
+import com.lsio.springboot.dto.Pojos.CityRequest;
+import com.lsio.springboot.dto.payload.CityResponse;
 import com.lsio.springboot.entities.City;
 import com.lsio.springboot.entities.Country;
-import com.lsio.springboot.payload.CityResponse;
 import com.lsio.springboot.repositories.CityRepository;
 import com.lsio.springboot.repositories.CountryRepository;
 

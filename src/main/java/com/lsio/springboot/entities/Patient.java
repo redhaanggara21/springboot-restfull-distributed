@@ -5,7 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.lsio.springboot.commons.PersonInfo;
+import com.lsio.springboot.utils.commons.PersonInfo;
 
 @Entity
 @Table(name="patients")

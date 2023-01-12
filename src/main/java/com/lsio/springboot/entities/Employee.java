@@ -25,7 +25,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.lsio.springboot.Pojos.EmpIdName;
+import com.lsio.springboot.dto.Pojos.EmpIdName;
 
 @Entity
 

@@ -2,7 +2,7 @@ package com.lsio.springboot.services;
 
 import java.util.stream.Collectors;
 
-import com.lsio.springboot.Pojos.CourseRequest;
+import com.lsio.springboot.dto.Pojos.CourseRequest;
 import com.lsio.springboot.entities.Course;
 import com.lsio.springboot.entities.CourseContents;
 import com.lsio.springboot.repositories.CourseContentRepository;

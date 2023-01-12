@@ -9,12 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.lsio.springboot.advSearch.WrkSpecificationBuilder;
 import com.lsio.springboot.entities.domain.Worker;
-import com.lsio.springboot.advSearch.WorkerSearchDto;
-import com.lsio.springboot.advSearch.SearchCriteria;
 import com.lsio.springboot.services.advancedsearching.WorkerService;
 import com.lsio.springboot.utils.APIResponse;
+import com.lsio.springboot.utils.advSearch.SearchCriteria;
+import com.lsio.springboot.utils.advSearch.WorkerSearchDto;
+import com.lsio.springboot.utils.advSearch.WrkSpecificationBuilder;
 
 import java.util.List;
 
