@@ -4,6 +4,7 @@ https://medium.com/@javatechie/kubernetes-tutorial-run-deploy-spring-boot-applic
 https://github.com/rajeshsgr/order-svc/tree/main/src/main/java/com/raj/nola/order
 https://stackabuse.com/spring-boot-with-redis-hashoperations-crud-functionality/
 https://medium.com/geekculture/overview-of-caching-distributed-cache-caching-patterns-techniques-6130a116820
+https://www.baeldung.com/spring-boot-run-maven-vs-executable-jar
 
 install redis
 1. brew nstall redis (for mac os) better os see on here: https://redis.io/

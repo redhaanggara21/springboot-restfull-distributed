@@ -6,44 +6,57 @@ import java.util.concurrent.Executors;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.listener.ChannelTopic;
-import org.springframework.data.redis.listener.RedisMessageListenerContainer;
-import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
-import org.springframework.data.redis.serializer.GenericToStringSerializer;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
-import com.lsio.springboot.controllers.redis.receiver.RedisReciever;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import java.time.Duration;
 @Configuration
-// @EnableRedisRepositories
 public class RedisConfig {
 
-    @Bean
-	JedisConnectionFactory connectionFactory() {
-		JedisConnectionFactory factory = new JedisConnectionFactory();
-		return factory;
-	}
-
-	@Bean
-	public RedisTemplate<String, String> redisTemplate() {
-		RedisTemplate<String, String> template = new RedisTemplate<>();
-		template.setConnectionFactory(connectionFactory());
-		template.setValueSerializer(new GenericToStringSerializer<String>(String.class));
-		return template;
-	};
-
-	@Bean
-	ChannelTopic topic() {
-		return new ChannelTopic(UUID.randomUUID().toString());
-	}
-
-	@Bean
-	RedisMessageListenerContainer redisContainer() {
-		RedisMessageListenerContainer container = new RedisMessageListenerContainer();
-		container.setConnectionFactory(connectionFactory());
-		container.addMessageListener(new MessageListenerAdapter(new RedisReciever()), topic());
-		container.setTaskExecutor(Executors.newFixedThreadPool(4));
-		return container;
-	}
+	
+		@Value(("${spring.redis.host}"))
+		private String redisHost;
+	
+		@Value(("${spring.redis.port}"))
+		private int redisPort;
+	
+		@Bean
+		public JedisConnectionFactory jedisConnectionFactory(){
+			RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
+			configuration.setHostName(redisHost);
+			configuration.setPort(redisPort);
+			JedisClientConfiguration.JedisClientConfigurationBuilder builder = JedisClientConfiguration.builder();
+			builder.connectTimeout(Duration.ofMinutes(1));
+			return new JedisConnectionFactory(configuration, builder.build());
+		}
+	
+		@Bean
+		public RedisTemplate<String, Object> redisTemplate(){
+			RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+			redisTemplate.setConnectionFactory(jedisConnectionFactory());
+			redisTemplate.setKeySerializer(this.jsonRedisSerializer());
+			redisTemplate.setValueSerializer(this.jsonRedisSerializer());
+			redisTemplate.setHashValueSerializer(this.jsonRedisSerializer());
+			return redisTemplate;
+		}
+	
+		protected Jackson2JsonRedisSerializer<Object> jsonRedisSerializer() {
+			Jackson2JsonRedisSerializer<Object> jsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
+			ObjectMapper objectMapper = new ObjectMapper();
+			objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+			objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,
+					ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.WRAPPER_ARRAY);
+			jsonRedisSerializer.setObjectMapper(objectMapper);
+			return jsonRedisSerializer;
+		}
 }
