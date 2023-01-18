@@ -8,4 +8,4 @@ https://www.baeldung.com/spring-boot-run-maven-vs-executable-jar
 
 install redis
 1. brew nstall redis (for mac os) better os see on here: https://redis.io/
-2. 
+2. mvn clean install 

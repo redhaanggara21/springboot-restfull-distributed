@@ -24,39 +24,39 @@ import java.time.Duration;
 public class RedisConfig {
 
 	
-		@Value(("${spring.redis.host}"))
-		private String redisHost;
+		// @Value(("${spring.redis.host}"))
+		// private String redisHost;
 	
-		@Value(("${spring.redis.port}"))
-		private int redisPort;
+		// @Value(("${spring.redis.port}"))
+		// private int redisPort;
 	
-		@Bean
-		public JedisConnectionFactory jedisConnectionFactory(){
-			RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
-			configuration.setHostName(redisHost);
-			configuration.setPort(redisPort);
-			JedisClientConfiguration.JedisClientConfigurationBuilder builder = JedisClientConfiguration.builder();
-			builder.connectTimeout(Duration.ofMinutes(1));
-			return new JedisConnectionFactory(configuration, builder.build());
-		}
+		// @Bean
+		// public JedisConnectionFactory jedisConnectionFactory(){
+		// 	RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
+		// 	configuration.setHostName(redisHost);
+		// 	configuration.setPort(redisPort);
+		// 	JedisClientConfiguration.JedisClientConfigurationBuilder builder = JedisClientConfiguration.builder();
+		// 	builder.connectTimeout(Duration.ofMinutes(1));
+		// 	return new JedisConnectionFactory(configuration, builder.build());
+		// }
 	
-		@Bean
-		public RedisTemplate<String, Object> redisTemplate(){
-			RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-			redisTemplate.setConnectionFactory(jedisConnectionFactory());
-			redisTemplate.setKeySerializer(this.jsonRedisSerializer());
-			redisTemplate.setValueSerializer(this.jsonRedisSerializer());
-			redisTemplate.setHashValueSerializer(this.jsonRedisSerializer());
-			return redisTemplate;
-		}
+		// @Bean
+		// public RedisTemplate<String, Object> redisTemplate(){
+		// 	RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+		// 	redisTemplate.setConnectionFactory(jedisConnectionFactory());
+		// 	redisTemplate.setKeySerializer(this.jsonRedisSerializer());
+		// 	redisTemplate.setValueSerializer(this.jsonRedisSerializer());
+		// 	redisTemplate.setHashValueSerializer(this.jsonRedisSerializer());
+		// 	return redisTemplate;
+		// }
 	
-		protected Jackson2JsonRedisSerializer<Object> jsonRedisSerializer() {
-			Jackson2JsonRedisSerializer<Object> jsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
-			ObjectMapper objectMapper = new ObjectMapper();
-			objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-			objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,
-					ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.WRAPPER_ARRAY);
-			jsonRedisSerializer.setObjectMapper(objectMapper);
-			return jsonRedisSerializer;
-		}
+		// protected Jackson2JsonRedisSerializer<Object> jsonRedisSerializer() {
+		// 	Jackson2JsonRedisSerializer<Object> jsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
+		// 	ObjectMapper objectMapper = new ObjectMapper();
+		// 	objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+		// 	objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,
+		// 			ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.WRAPPER_ARRAY);
+		// 	jsonRedisSerializer.setObjectMapper(objectMapper);
+		// 	return jsonRedisSerializer;
+		// }
 }
