@@ -1,4 +1,4 @@
-package com.lsio.springboot.utils.config;
+package com.lsio.springboot.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
